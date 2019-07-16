@@ -1,4 +1,9 @@
-import UIKit
+//  Created by Paul Freeman on 15/07/2019.
+//  Copyright © 2019 Rocket Garden Labs.
+//
+//  MIT Licence
+
+import Foundation
 
 
 ///Create a property wrapper for an array and sync updates to it

@@ -9,7 +9,8 @@ import Foundation
 ///Create a property wrapper for an array and sync updates to it
 
 //MARK:- Code under test
-public class ConcurrentResultData< E > {
+public class ConcurrentResultData< E > 
+{
     private let resultPropertyQueue = dispatch_queue_concurrent_t.init(label: UUID().uuidString)
     private var _resultArray = [E]() // Backing storage
     
@@ -28,13 +29,15 @@ public class ConcurrentResultData< E > {
         }
     }
     
-    public func append(element : E) {
+    public func append(element : E) 
+    {
         resultPropertyQueue.async(group: nil, qos: .default, flags: .barrier) {
             self._resultArray.append(element)
         }
     }
     
-    public func appendAll(array : [E]) {
+    public func appendAll(array : [E])
+    {
         resultPropertyQueue.async(group: nil, qos: .default, flags: .barrier) {
             self._resultArray.append(contentsOf: array)
         }
@@ -47,7 +50,8 @@ public class ConcurrentResultData< E > {
 var count:Int = 0
 let numberOfOperations = 50
 
-func operationCompleted(d:ConcurrentResultData<Dictionary<AnyHashable, AnyObject>>) {
+func operationCompleted(d:ConcurrentResultData<Dictionary<AnyHashable, AnyObject>>)
+   {
     if count + 1 < numberOfOperations {
         count += 1
     }
@@ -57,8 +61,10 @@ func operationCompleted(d:ConcurrentResultData<Dictionary<AnyHashable, AnyObject
     }
 }
 
-func runOperationAndAddResult(queue:OperationQueue, result:ConcurrentResultData<Dictionary<AnyHashable, AnyObject>> ) {
-    queue.addOperation {
+func runOperationAndAddResult(queue:OperationQueue, result:ConcurrentResultData<Dictionary<AnyHashable, AnyObject>> ) 
+{
+    queue.addOperation 
+    {
         let id = UUID().uuidString
         print("\(id) running")
         let delay:Int = Int(arc4random_uniform(2) + 1)

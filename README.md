@@ -1,3 +1,3 @@
 # publicplaygrounds
 
-Playgrounds containing code samples. Not guaranteed to be production ready, use at own risk or for learning purposes. 
+Playgrounds containing code samples. Not guaranteed to be production ready, for education, modification and any way desired other than ways risking winning a Darwin award.

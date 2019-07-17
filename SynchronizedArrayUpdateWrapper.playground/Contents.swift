@@ -3,13 +3,12 @@
 //
 //  MIT Licence
 
-import Foundation
-
+import Foundation 
 
 ///Create a property wrapper for an array and sync updates to it
 
 //MARK:- Code under test
-public class ConcurrentResultData< E > 
+public class ConcurrentResultData<E> 
 {
     private let resultPropertyQueue = dispatch_queue_concurrent_t.init(label: UUID().uuidString)
     private var _resultArray = [E]() // Backing storage
@@ -43,8 +42,7 @@ public class ConcurrentResultData< E >
         }
     }
     
-}
-
+} 
 
 //MARK:- helpers
 var count:Int = 0
@@ -78,11 +76,9 @@ func runOperationAndAddResult(queue:OperationQueue, result:ConcurrentResultData<
             operationCompleted(d:result)
         }
     }
-}
+} 
 
-
-//MARK:- call
-
+//MARK:- call 
 let q = OperationQueue()
 q.maxConcurrentOperationCount = 10
 let d = ConcurrentResultData<Dictionary<AnyHashable, AnyObject>>()
